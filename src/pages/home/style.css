@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.home {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px 16px;
+  position: relative;
+}
+
+h1 {
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 3px;
+}
+
+.points-table {
+  display: flex;
+  width: 100%;
+  margin: 24px 0 24px;
+}
+
+.points-column {
+  width: 100%;
+  text-align: center;
+}
+
+.points-column h3 {
+  height: 50px;
+  border-bottom: 2px solid #f4f1de;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 3px;
+}
+
+.points-option {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.points-option:nth-child(odd) {
+  background: #555870;
+}
+
+.points-option p {
+  width: 80px;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 3px;
+  font-size: 26px;
+}
+
+.points-option button {
+  width: auto;
+  font-size: 16px;
+  min-width: 25px;
+  color: #3d405b;
+  padding: 5px 5px;
+}
+
+.button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-wrapper h2 {
+  margin: 5px 0;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 3px;
+  font-size: 36px;
+}
+
+.button-wrapper div button {
+  width: auto;
+  font-size: 16px;
+  min-width: 75px;
+  padding: 5px 10px;
+  margin: 0 5px;
+}
+
+.button-wrapper div button:first-of-type {
+  margin: 0 5px 0 0;
+}
+
+button.green {
+  background: #42a561;
+  color: #f4f1de;
+  min-width: 75px;
+}
+
+button.red {
+  background: #ec4140;
+  color: #f4f1de;
+  min-width: 75px;
+}
+
+button.grey {
+  background: #252523;
+  color: #f4f1de;
+  min-width: 75px;
+}
+
+button.reset {
+  background: #ec4140;
+  color: #f4f1de;
+}
+
+button.scratch {
+  background: #f2cc8f;
+  color: #3d405b;
+}
+
+button.end {
+  background: #42a561;
+  color: #f4f1de;
+}
+
+button.bull {
+  width: calc(50% - 10px);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% + 50px);
+  padding: 16px;
+  box-shadow: 0 4px 3px 0px black;
+  position: sticky;
+  top: 0;
+  background: #3d405b;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  z-index: 11;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px;
+}
+
+.modal-action {
+  padding: 5px;
+  margin-top: 15px;
+}
+
+.modal-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  transform: scale(0);
+  animation: scale-out 0.25s ease;
+}
+
+.visible {
+  transform: scale(1);
+  animation: scale-in 0.25s ease;
+}
+
+@keyframes scale-out {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
