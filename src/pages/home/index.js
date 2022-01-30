@@ -9,6 +9,14 @@ let Home = () => {
   let [modalAction, setModalAction] = useState("scratch");
   let [modalButtonMessage, setModalButtonMessage] = useState("Testing");
   let [showModal, setShowModal] = useState(false);
+  let [failure] = useState(
+    new Audio("https://www.myinstants.com/media/sounds/failure_O7HQcB1.mp3")
+  );
+  let [success] = useState(
+    new Audio(
+      "https://www.myinstants.com/media/sounds/gta-san-andreas-_RZMwPB0.mp3"
+    )
+  );
   const jsConfetti = new JSConfetti();
 
   const handleScoreUpdate = (amount) => {
@@ -34,6 +42,7 @@ let Home = () => {
   };
 
   const handleScratch = () => {
+    failure.play();
     setModalMessage("OOPS! You Scratched!");
     setModalButtonMessage("Close");
     setModalAction("scratch");
@@ -47,6 +56,7 @@ let Home = () => {
 
   useEffect(() => {
     if (currGamePoints === 0) {
+      success.play();
       setModalMessage("YAY! You won!");
       setModalButtonMessage("Play Again");
       setModalAction("win");
@@ -354,6 +364,8 @@ let Home = () => {
                 ? setCurrTurnPoints(0)
                 : setCurrGamePoints(301);
               setShowModal(false);
+              failure.pause();
+              success.pause();
             }}
           >
             {modalButtonMessage}
