@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
+import CountUp from "react-countup";
 import JSConfetti from "js-confetti";
+import dartboard from "../../images/dartboard.png";
 import "./style.css";
 
 let Home = () => {
+  // let [currGameNum, setCurrGameNum] = useState(1);
+  // let [scores, setScores] = useState([]);
   let [currGamePoints, setCurrGamePoints] = useState(301);
+  let [prevGamePoints, setPrevGamePoints] = useState(301);
   let [currTurnPoints, setCurrTurnPoints] = useState(0);
+  let [prevTurnPoints, setPrevTurnPoints] = useState(0);
   let [modalMessage, setModalMessage] = useState("OOPS! You scratched!");
   let [modalAction, setModalAction] = useState("scratch");
   let [modalButtonMessage, setModalButtonMessage] = useState("Testing");
@@ -21,14 +27,20 @@ let Home = () => {
 
   const handleScoreUpdate = (amount) => {
     if (currTurnPoints + amount < 0) return;
-    setCurrTurnPoints((curr) => curr + amount);
+    setCurrTurnPoints((curr) => {
+      setPrevTurnPoints(curr);
+      return curr + amount;
+    });
   };
 
   const handleFinishTurn = () => {
     if (currGamePoints - currTurnPoints < 0) {
       handleScratch();
     } else {
-      setCurrGamePoints((curr) => curr - currTurnPoints);
+      setCurrGamePoints((curr) => {
+        setPrevGamePoints(curr);
+        return curr - currTurnPoints;
+      });
       setCurrTurnPoints(0);
     }
   };
@@ -43,21 +55,21 @@ let Home = () => {
 
   const handleScratch = () => {
     failure.play();
-    setModalMessage("OOPS! You Scratched!");
+    setModalMessage("<h3>OOPS! You Scratched!</h3>");
     setModalButtonMessage("Close");
     setModalAction("scratch");
     setShowModal(true);
     jsConfetti.addConfetti({
       emojis: ["💩"],
       emojiSize: 120,
-      confettiNumber: 90,
+      confettiNumber: 40,
     });
   };
 
   useEffect(() => {
     if (currGamePoints === 0) {
       success.play();
-      setModalMessage("YAY! You won!");
+      setModalMessage("<h3>YAY! You won!</h3>");
       setModalButtonMessage("Play Again");
       setModalAction("win");
       setShowModal(true);
@@ -70,21 +82,64 @@ let Home = () => {
     // eslint-disable-next-line
   }, [currGamePoints]);
 
+  // useEffect(() => {
+  //   let user = localStorage.getItem("pikadoUser");
+  //   console.log(user);
+  //   if (!user) {
+  //     localStorage.setItem(
+  //       "pikadoUser",
+  //       JSON.stringify({
+  //         history: [
+  //           {
+  //             gameNum: 1,
+  //             scores: [],
+  //             outcome: "",
+  //           },
+  //         ],
+  //       })
+  //     );
+  //   } else {
+  //   }
+  // }, []);
+
   return (
     <div className="home">
+      <img src={dartboard} className="dartboard" alt="dartboard" />
       <div className="header">
         <div className="button-wrapper">
           <div>
             <p>Game</p>
-            <h2>{currGamePoints}</h2>
-            <button className="reset" onClick={() => handleResetGame()}>
+            <h2>
+              <CountUp
+                start={prevGamePoints}
+                end={currGamePoints}
+                useEasing
+                duration={1.5}
+              />
+            </h2>
+            <button
+              className="reset"
+              onClick={() => handleResetGame()}
+              disabled={currGamePoints === 301}
+            >
               Reset
             </button>
           </div>
           <div>
             <p>Turn</p>
-            <h2>{currTurnPoints}</h2>
-            <button className="reset" onClick={() => handleResetTurn()}>
+            <h2>
+              <CountUp
+                start={prevTurnPoints}
+                end={currTurnPoints}
+                useEasing
+                duration={1.5}
+              />
+            </h2>
+            <button
+              className="reset"
+              onClick={() => handleResetTurn()}
+              disabled={currTurnPoints === 0}
+            >
               Reset
             </button>
             <button className="scratch" onClick={() => handleScratch()}>
@@ -356,7 +411,7 @@ let Home = () => {
           <button className="modal-close" onClick={() => setShowModal(false)}>
             Close
           </button>
-          <h3>{modalMessage}</h3>
+          <div dangerouslySetInnerHTML={{ __html: modalMessage }}></div>
           <button
             className="modal-action"
             onClick={() => {

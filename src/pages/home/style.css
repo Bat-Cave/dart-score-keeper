@@ -10,6 +10,14 @@
   position: relative;
 }
 
+.dartboard {
+  position: fixed;
+  right: 15px;
+  top: 10px;
+  z-index: 111;
+  width: 64px;
+}
+
 h1 {
   font-family: "Bebas Neue", cursive;
   letter-spacing: 3px;
@@ -48,7 +56,10 @@ h1 {
   width: 80px;
   font-family: "Bebas Neue", cursive;
   letter-spacing: 3px;
-  font-size: 26px;
+  font-size: 28px;
+  line-height: 36px;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 4px;
 }
 
 .points-option button {
@@ -66,7 +77,7 @@ h1 {
   align-items: center;
 }
 
-.button-wrapper h2 {
+.button-wrapper h2 span {
   margin: 5px 0;
   font-family: "Bebas Neue", cursive;
   letter-spacing: 3px;
@@ -76,7 +87,7 @@ h1 {
 .button-wrapper div button {
   width: auto;
   font-size: 16px;
-  min-width: 75px;
+  width: 75px;
   padding: 5px 10px;
   margin: 0 5px;
 }
@@ -88,29 +99,35 @@ h1 {
 button.green {
   background: #42a561;
   color: #f4f1de;
-  min-width: 75px;
+  width: 75px;
 }
 
 button.red {
   background: #ec4140;
   color: #f4f1de;
-  min-width: 75px;
+  width: 75px;
 }
 
 button.grey {
   background: #252523;
   color: #f4f1de;
-  min-width: 75px;
+  width: 75px;
 }
 
 button.reset {
-  background: #ec4140;
-  color: #f4f1de;
+  background: #f2cc8f;
+  color: #3d405b;
+  transition: all 0.25s ease;
+  opacity: 1;
+}
+
+button.reset:disabled {
+  opacity: 0.5;
 }
 
 button.scratch {
-  background: #f2cc8f;
-  color: #3d405b;
+  background: #ec4140;
+  color: #f4f1de;
 }
 
 button.end {
@@ -131,6 +148,7 @@ button.bull {
   box-shadow: 0 4px 3px 0px black;
   position: sticky;
   top: 0;
+  transform: translateY(-1px);
   background: #3d405b;
 }
 
