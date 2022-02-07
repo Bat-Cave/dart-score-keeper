@@ -1,0 +1,402 @@
+.stats {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px 32px;
+}
+
+.stats-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-section select {
+  color: black;
+  width: 100%;
+  max-width: 250px;
+  height: 30px;
+  margin: 4px auto;
+  border-radius: 5px;
+}
+
+.stats-section option {
+  color: black;
+}
+
+.game-table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: fade-in 1s ease;
+}
+
+.game-summary {
+  background: #252523;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4px;
+  margin: 12px auto;
+}
+
+.game-stat {
+  background: #555870;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin: 4px;
+  width: calc(50% - 8px);
+}
+
+.game-stat p {
+  width: 100%;
+  border-bottom: 1px solid #f4f1de;
+  font-size: 12px;
+}
+
+.turn-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #f4f1de;
+  border-bottom: 1px solid #f4f1de;
+  padding: 4px 0;
+}
+
+.turn-header p {
+  font-size: 12px;
+  margin: 0;
+}
+
+.turn-header .turn-title p {
+  font-size: 12px;
+  margin: 0;
+}
+
+.turn-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-top: 1px solid #f4f1de;
+  border-bottom: 1px solid #f4f1de;
+  padding: 4px 0;
+}
+
+.turn-row:nth-child(odd) {
+  background: #555870;
+}
+
+.turn-scores {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.turn-title {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid #f4f1de;
+}
+
+.turn-title h3 {
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.turn-title p {
+  margin-top: 10px;
+}
+
+.turn-score {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0px 2px 12px;
+}
+
+.turn-score p {
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.dart-score {
+  width: 40px;
+  text-align: center;
+}
+
+.dart-time {
+  font-size: 10px;
+  width: 75px;
+}
+
+.Triple {
+  background: #ec4140;
+  color: #f4f1de;
+}
+
+.Double {
+  background: #42a561;
+  color: #f4f1de;
+}
+
+.Single {
+  background: #252523;
+  color: #f4f1de;
+}
+
+.game-dart-spread {
+  background: url("../../images/stat-dartboard.png");
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  border-radius: 4px;
+  margin: 4px;
+  position: relative;
+}
+
+.spot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: yellow;
+  border: 1px solid orangered;
+  border-radius: 5px;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.trip-20 {
+  transform: translate(-50%, -725%);
+}
+.dub-20 {
+  transform: translate(-50%, -1161%);
+}
+.sing-20 {
+  transform: translate(-50%, -950%);
+}
+
+.trip-19 {
+  transform: translate(-265%, 600%);
+}
+.dub-19 {
+  transform: translate(-400%, 1010%);
+}
+.sing-19 {
+  transform: translate(-325%, 800%);
+}
+
+.trip-18 {
+  transform: translate(350%, -600%);
+}
+.dub-18 {
+  transform: translate(605%, -955%);
+}
+.sing-18 {
+  transform: translate(480%, -780%);
+}
+
+.trip-17 {
+  transform: translate(165%, 600%);
+}
+.dub-17 {
+  transform: translate(300%, 1010%);
+}
+.sing-17 {
+  transform: translate(225%, 800%);
+}
+
+.trip-16 {
+  transform: translate(-600%, 360%);
+}
+.dub-16 {
+  transform: translate(-960%, 615%);
+}
+.sing-16 {
+  transform: translate(-775%, 480%);
+}
+
+.trip-15 {
+  transform: translate(500%, 360%);
+}
+.dub-15 {
+  transform: translate(860%, 615%);
+}
+.sing-15 {
+  transform: translate(675%, 480%);
+}
+
+.trip-14 {
+  transform: translate(-700%, -260%);
+}
+.dub-14 {
+  transform: translate(-1115%, -390%);
+}
+.sing-14 {
+  transform: translate(-915%, -330%);
+}
+
+.trip-13 {
+  transform: translate(600%, -260%);
+}
+.dub-13 {
+  transform: translate(1015%, -390%);
+}
+.sing-13 {
+  transform: translate(815%, -330%);
+}
+
+.trip-12 {
+  transform: translate(-450%, -600%);
+}
+.dub-12 {
+  transform: translate(-705%, -955%);
+}
+.sing-12 {
+  transform: translate(-580%, -780%);
+}
+
+.trip-11 {
+  transform: translate(-730%, -50%);
+}
+.dub-11 {
+  transform: translate(-1170%, -50%);
+}
+.sing-11 {
+  transform: translate(-955%, -50%);
+}
+
+.trip-10 {
+  transform: translate(600%, 160%);
+}
+.dub-10 {
+  transform: translate(1015%, 290%);
+}
+.sing-10 {
+  transform: translate(815%, 230%);
+}
+
+.trip-9 {
+  transform: translate(-600%, -460%);
+}
+.dub-9 {
+  transform: translate(-960%, -715%);
+}
+.sing-9 {
+  transform: translate(-775%, -580%);
+}
+
+.trip-8 {
+  transform: translate(-700%, 160%);
+}
+.dub-8 {
+  transform: translate(-1115%, 290%);
+}
+.sing-8 {
+  transform: translate(-915%, 230%);
+}
+
+.trip-7 {
+  transform: translate(-450%, 500%);
+}
+.dub-7 {
+  transform: translate(-705%, 855%);
+}
+.sing-7 {
+  transform: translate(-580%, 680%);
+}
+
+.trip-6 {
+  transform: translate(630%, -50%);
+}
+.dub-6 {
+  transform: translate(1070%, -50%);
+}
+.sing-6 {
+  transform: translate(855%, -50%);
+}
+
+.trip-5 {
+  transform: translate(-265%, -700%);
+}
+.dub-5 {
+  transform: translate(-400%, -1110%);
+}
+.sing-5 {
+  transform: translate(-325%, -900%);
+}
+
+.trip-4 {
+  transform: translate(500%, -460%);
+}
+.dub-4 {
+  transform: translate(860%, -715%);
+}
+.sing-4 {
+  transform: translate(675%, -580%);
+}
+
+.trip-3 {
+  transform: translate(-50%, 625%);
+}
+.dub-3 {
+  transform: translate(-50%, 1061%);
+}
+.sing-3 {
+  transform: translate(-50%, 850%);
+}
+
+.trip-2 {
+  transform: translate(350%, 500%);
+}
+.dub-2 {
+  transform: translate(605%, 855%);
+}
+.sing-2 {
+  transform: translate(480%, 680%);
+}
+
+.trip-1 {
+  transform: translate(165%, -700%);
+}
+.dub-1 {
+  transform: translate(300%, -1110%);
+}
+.sing-1 {
+  transform: translate(225%, -900%);
+}
+
+.bulls-eye-spread {
+  transform: translate(-50%, -50%);
+}
+
+.bull-spread {
+  transform: translate(40%, -50%);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

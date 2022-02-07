@@ -7,12 +7,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 25px 16px;
+  padding: 0 10px 16px;
   position: relative;
 }
 
 .dartboard {
   position: fixed;
+  display: none;
   right: 15px;
   top: 10px;
   z-index: 111;
@@ -54,13 +55,15 @@ h1 {
 }
 
 .points-option p {
-  width: 80px;
+  width: 100%;
+  max-width: 80px;
   font-family: "Bebas Neue", cursive;
   letter-spacing: 3px;
   font-size: 28px;
   line-height: 36px;
   background: rgba(0, 0, 0, 0.9);
   border-radius: 4px;
+  margin-right: 4px;
 }
 
 .points-option button {
@@ -74,15 +77,43 @@ h1 {
 .button-wrapper {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.button-wrapper h2 {
+  width: 100%;
+  max-width: 75px;
 }
 
 .button-wrapper h2 span {
-  margin: 5px 0;
+  margin: 5px 10px 5px;
   font-family: "Bebas Neue", cursive;
   letter-spacing: 3px;
   font-size: 36px;
+  width: 100%;
+}
+
+.button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.button-group p {
+  width: 100%;
+  border-bottom: 1px solid #f4f1de;
+}
+
+.button-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
 }
 
 .button-wrapper div button {
@@ -90,11 +121,7 @@ h1 {
   font-size: 16px;
   width: 75px;
   padding: 5px 10px;
-  margin: 0 5px;
-}
-
-.button-wrapper div button:first-of-type {
-  margin: 0 5px 0 0;
+  margin: 2.5px;
 }
 
 button.green {
@@ -144,7 +171,7 @@ button.bull {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(100% + 50px);
+  width: calc(100% + 32px);
   padding: 16px;
   box-shadow: 0 4px 3px 0px black;
   position: sticky;
@@ -181,6 +208,22 @@ button.bull {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 50px 25px;
+}
+
+.modal-content h4 {
+  text-align: center;
+  margin-top: 25px;
+}
+
+input {
+  color: black;
+  height: 40px;
+  padding: 4px;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 3px;
+  font-size: 36px;
+  margin: 25px 0;
 }
 
 .hidden {
