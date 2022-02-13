@@ -14,6 +14,7 @@ let Home = () => {
   let [currTurnPointsObj, setCurrTurnPointsObj] = useState([]);
   let [modalMessage, setModalMessage] = useState("OOPS! You scratched!");
   let [modalButtonMessage, setModalButtonMessage] = useState("Testing");
+  let [modalAction, setModalAction] = useState("");
   let [showModal, setShowModal] = useState(false);
   let [showSignUpModal, setShowSignUpModal] = useState(false);
   let [userName, setUserName] = useState("");
@@ -79,6 +80,7 @@ let Home = () => {
 
   const handleResetTurn = () => {
     setCurrTurnPoints(0);
+    setCurrTurnPointsObj([]);
   };
 
   const handleScratch = () => {
@@ -181,6 +183,7 @@ let Home = () => {
                         "<h3>Are you sure you want to reset?</h3>"
                       );
                       setModalButtonMessage("Reset Game");
+                      setModalAction("reset");
                       setShowModal(true);
                     }
                   }}
@@ -668,6 +671,10 @@ let Home = () => {
           <button
             className="modal-action"
             onClick={() => {
+              if (modalAction === "reset") {
+                handleResetGame();
+                setModalAction("");
+              }
               setShowModal(false);
             }}
           >

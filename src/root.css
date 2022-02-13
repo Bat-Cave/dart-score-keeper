@@ -27,4 +27,21 @@ button {
   border: none;
   font-size: 20px;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #3d405b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #42a561;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1c5a30;
 }
