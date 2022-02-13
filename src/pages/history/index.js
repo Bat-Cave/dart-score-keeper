@@ -102,7 +102,10 @@ let History = () => {
         let currGame = userDataCopy.history[i];
         for (let j = 0; j < currGame.scores.length; j++) {
           for (let k = 0; k < currGame.scores[j].length; k++) {
-            score += currGame.scores[j][k].score;
+            score +=
+              currGame.scores[j][k].score === "scratch"
+                ? 0
+                : currGame.scores[j][k].score;
           }
         }
       }
